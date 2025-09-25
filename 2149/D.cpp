@@ -28,31 +28,8 @@ const ll LINF = 1e18;
 #define per(i, a, b) for (int i = b - 1; i >= a; --i)
 #define all(x) x.begin(), x.end()
 
+
 int min_swaps_char(const string &s, char target)
-{
-    int n = s.size();
-    vector<int> pos;
-    for (int i = 0; i < n; ++i)
-        if (s[i] == target)
-            pos.push_back(i);
-    int k = pos.size();
-    if (k == 0 || k == n)
-        return 0;
-    vector<long long> prefix(k + 1, 0);
-    for (int i = 0; i < k; ++i)
-        prefix[i + 1] = prefix[i] + pos[i];
-    long long res = LLONG_MAX;
-    for (int i = 0; i + k <= n; ++i)
-    {
-
-        long long sum_target = (long long)k * i + (long long)k * (k - 1) / 2;
-        long long sum_actual = prefix[i + k] - prefix[i];
-        res = min(res, abs(sum_actual - sum_target));
-    }
-    return (int)res;
-}
-
-/*int min_swaps_char(const string &s, char target)
 {
     int n = s.size();
     vector<int> pos;
@@ -73,7 +50,7 @@ int min_swaps_char(const string &s, char target)
         res = min(res, swaps);
     }
     return res;
-}*/
+}
 
 void solve()
 {
