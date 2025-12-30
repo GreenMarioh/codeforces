@@ -27,7 +27,7 @@ const ll LINF = 1e18;
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define per(i, a, b) for (int i = b - 1; i >= a; --i)
 #define all(x) x.begin(), x.end()
-//not solved or incorrect
+
 void solve()
 {
     int n;
@@ -35,24 +35,22 @@ void solve()
     vector<ll> a(n);
     rep(i, 0, n) ci a[i];
 
-    if (n == 2)
+    vector<ll> prefixSum(n + 1), suffixSum(n);
+    rep(i, 1, n)
     {
-        co max(a[0], -a[1]) << '\n';
-        return;
+        prefixSum[i + 1] = abs(a[i]) + prefixSum[i];
+    }
+    for (int i = n - 1; i >= 1; i--)
+    {
+        suffixSum[i - 1] = suffixSum[i] - a[i];
     }
 
-    vector<ll> dp(n, -LINF);
-    dp[0] = 0;
-    dp[1] = max(a[0], -a[1]);
+    ll res = suffixSum[0];
+    for (int i = 1; i < n; i++)
+        res = max(res, a[0] + prefixSum[i] + suffixSum[i]);
 
-    for (int i = 2; i < n; i++)
-        dp[i] = max(dp[i - 1] + a[i - 1],
-                    dp[i - 2] + a[i - 2] - a[i]);
-
-    co *max_element(all(dp)) << '\n';
+    co res << endl;
 }
-
-
 
 int main()
 {
