@@ -28,7 +28,6 @@ int main()
             continue;
         }
 
-        // Remove duplicates and sort
         sort(a.begin(), a.end());
         a.erase(unique(a.begin(), a.end()), a.end());
         n = a.size();
@@ -39,11 +38,6 @@ int main()
             continue;
         }
 
-        // Now we want to find the maximum number of elements we can select
-        // such that no two selected elements are consecutive integers
-        // This is similar to the "House Robber" problem
-
-        // dp[i] = maximum elements we can select from a[0..i]
         vector<int> dp(n);
         dp[0] = 1;
 
