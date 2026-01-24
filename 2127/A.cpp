@@ -76,7 +76,7 @@ int main()
 {
     meow;
     int t;
-    cin >> t;
+    cin >> t; 
     while (t--)
     {
         solve();
