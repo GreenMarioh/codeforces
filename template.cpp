@@ -9,6 +9,8 @@ using pll = pair<ll, ll>;
 #define co cout <<
 #define ci cin >>
 
+#define ded << "\n";
+
 #define vi vector<int>
 #define vll vector<long long>
 
