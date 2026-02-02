@@ -8,6 +8,7 @@ using pll = pair<ll, ll>;
 
 #define co cout <<
 #define ci cin >>
+
 #define ded << "\n";
 
 #define vi vector<int>
@@ -31,29 +32,22 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n;
-    ci n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++)
-        ci a[i];
+    int n, a;
+    ci n >> a;
 
-    vector<int> b = a;
-    sort(all(a));
-    if (a == b)
-    {
-        co "-1\n";
-        return;
-    }
-    int mx = a[n - 1], mn = a[0];
-    int res = INT_MAX;
+    vector<int> arr(n);
+    int sum1 = 0, sum2 = 0;
+    int b1 = 0, b2 = 0;
     rep(i, 0, n)
     {
-        if (a[i] != b[i])
-        {
-            res = min(res, max(b[i] - mn, mx - b[i]));
-        }
+        ci arr[i];
+        if (a > arr[i])
+            b1++;
+        if (a < arr[i])
+            b2++;
     }
-    co res ded
+    if (b1 > b2)
+        co a - 1 ded else co a + 1 ded
 }
 
 int main()
