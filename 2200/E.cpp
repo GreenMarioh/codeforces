@@ -30,42 +30,38 @@ const ll LINF = 1e18;
 #define per(i, a, b) for (int i = b - 1; i >= a; --i)
 #define all(x) x.begin(), x.end()
 
-void solve()
-{
-    int n, x, y;
-    ci n >> x >> y;
-    vector<int> arr(n);
-    rep(i, 0, n) ci arr[i];
-
-    vector<int> A, B;
-    for (int i = x; i < y; i++)
-        A.push_back(arr[i]);
-    for (int i = 0; i < x; i++)
-        B.push_back(arr[i]);
-    for (int i = y; i < n; i++)
-        B.push_back(arr[i]);
-
-    int mn = *min_element(all(A));
-    int pos = find(all(A), mn) - A.begin();
-    rotate(A.begin(), A.begin() + pos, A.end());
-
-    int insertPos = B.size();
-    for (int i = 0; i < (int)B.size(); i++)
-    {
-        if (B[i] > mn)
-        {
-            insertPos = i;
-            break;
+int minPrime(int x){
+    set<int> s;
+    for(int i = 2; i*i<=x; i++){
+        while(x%i==0){
+            s.insert(i);
+            x/=i;
         }
     }
+    if (x > 1) s.insert(x);
+    if (s.size() > 1) return -1;
+    if (s.size() == 0) return 1;
+    return *s.begin();
+}
 
-    for (int i = 0; i < insertPos; i++)
-        co B[i] << " ";
-    for (int v : A)
-        co v << " ";
-    for (int i = insertPos; i < (int)B.size(); i++)
-        co B[i] << " ";
-    cout ded
+void solve()
+{
+    int n;
+    ci n;
+    vector<int> arr(n);
+    rep(i, 0, n) ci arr[i];
+    vector<int> b(n);
+    for(int i = 0; i < n; i++) b[i] = minPrime(arr[i]);
+    if (is_sorted(all(arr))){
+        co "Bob\n";
+    } else if (*min_element(all(b)) == -1){
+        co "Alice\n";
+    } else if (is_sorted(all(b))){
+        co "Bob\n";
+    } else {
+        co "Alice\n";
+    }
+
 }
 
 int main()
