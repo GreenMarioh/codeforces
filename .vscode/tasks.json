@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Precompile bits/stdc++.h",
+            "type": "shell",
+            "command": "cd \"${workspaceFolder}\" && mkdir -p \"${workspaceFolder}/.pch/bits\" && if [ ! -f \"${workspaceFolder}/.pch/bits/stdc++.h\" ]; then printf '#pragma once\\n#include_next <bits/stdc++.h>\\n' > \"${workspaceFolder}/.pch/bits/stdc++.h\"; fi && g++ -std=c++17 -Winvalid-pch -x c++-header \"${workspaceFolder}/.pch/bits/stdc++.h\" -o \"${workspaceFolder}/.pch/bits/stdc++.h.gch\"",
+            "presentation": {
+                "reveal": "never",
+                "panel": "shared",
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build and Run C++ with File IO",
+            "type": "shell",
+            "dependsOn": [
+                "Precompile bits/stdc++.h"
+            ],
+            "command": "cd \"${workspaceFolder}\" && mkdir -p \"${workspaceFolder}/00compiled-files\" && g++ -std=c++17 -Winvalid-pch -I\"${workspaceFolder}/.pch\" ${file} -o \"${workspaceFolder}/00compiled-files/${fileBasenameNoExtension}\" && \"${workspaceFolder}/00compiled-files/${fileBasenameNoExtension}\" < \"${workspaceFolder}/input.txt\" > \"${workspaceFolder}/output.txt\"",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        }
+    ]
+}

@@ -3,5 +3,6 @@
     "iostream": "cpp",
     "cmath": "cpp",
     "ostream": "cpp"
-  }
+  },
+  "editor.fontSize": 17
 }
