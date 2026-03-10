@@ -1,4 +1,5 @@
 .pch/
 *.gch
 .cph
-/00compiled-files
+/00compiled-files*.exe
+*.out

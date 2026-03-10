@@ -36,12 +36,6 @@ void solve()
     vector<int> a(n);
     for(int i = 0 ; i < n; i++) ci a[i];
 
-    // greedily look for the lowest point between the highest tower and the border
-    // to decide if we choose L or R border, choose the maximum distance or the one which covers the most area
-    // select the lowest point and drain the water from there
-    // for the second point, either select the second lowest point from the same side or the lowest side from the other side, whichever is more draining
-    
-
     vector<ll> height(n);
     rep(i,0,n) height[i] = h - a[i];
 
