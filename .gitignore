@@ -1,5 +1,16 @@
 .pch/
 *.gch
 .cph
-/00compiled-files*.exe
+/00compiled-files
+*.exe
 *.out
+*.o
+*.a
+*.so
+*.dll
+*.app
+*.out
+a.exe
+a.out
+input.txt
+output.txt
