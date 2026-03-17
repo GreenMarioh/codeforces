@@ -29,14 +29,26 @@ const ll LINF = 1e18;
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define per(i, a, b) for (int i = b - 1; i >= a; --i)
 #define all(x) x.begin(), x.end()
-#define getv(a,n) \
-    vector<int> a(n); \
-    for(int i=0;i<n;i++) cin >> a[i];
+
+int sumOfDigits(int n){
+    int res =0 ;
+    while(n>0){
+        res+=n%10;
+        n/=10;
+    }
+    return res;
+}
 
 void solve()
 {
-    ci n;
-    getv(a, n);
+    int n;
+    cin >> n;
+    int res = 0;
+    for(int i =n; i <= n+90; i++){
+        if (i - sumOfDigits(i) == n) res++;
+    }
+    co res ded
+
 }
 
 int main()

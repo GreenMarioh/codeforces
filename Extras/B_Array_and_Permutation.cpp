@@ -29,14 +29,26 @@ const ll LINF = 1e18;
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define per(i, a, b) for (int i = b - 1; i >= a; --i)
 #define all(x) x.begin(), x.end()
-#define getv(a,n) \
-    vector<int> a(n); \
-    for(int i=0;i<n;i++) cin >> a[i];
 
 void solve()
 {
+    int n;
     ci n;
-    getv(a, n);
+    vi a(n), b(n);
+    rep(i, 0, n) ci a[i];
+    rep(i, 0, n) ci b[i];
+
+    unordered_map<int, int> mpp;
+    for(int i = 0; i < n; i++){
+        mpp[a[i]] = i;
+    }
+
+    for(int i = 0; i < n-1; i++){
+        if (mpp[b[i]] > mpp[b[i+1]]){
+            co "NO\n"; return;
+        }
+    }
+    co "YES\n";
 }
 
 int main()
