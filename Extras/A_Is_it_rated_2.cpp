@@ -36,28 +36,19 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n;
-    ci n;
-    getv(a,n); getv(b, n);
-
-    unordered_map<int, int> mpp;
-    for(int i = 0; i < n; i++){
-        mpp[a[i]] = i;
+    string s;
+    while(getline(cin, s)){
+        co "NO\n";
+        cout.flush();
     }
-
-    for(int i = 0; i < n-1; i++){
-        if (mpp[b[i]] > mpp[b[i+1]]){
-            co "NO\n"; return;
-        }
-    }
-    co "YES\n";
+    
 }
 
 int main()
 {
     meow;
-    int t;
-    cin >> t;
+    int t=1;
+    //cin >> t;
     while (t--)
     {
         solve();
