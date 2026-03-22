@@ -36,26 +36,18 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    ll c, k;
-    ll n; ci n >> c >> k;
-    getv(a, n);
-    sort(all(a));
-    for(int i = 0; i < n; i++){
-        if (a[i] > c) break;
-        ll d = min(k, c-a[i]);
-        c+=a[i]+d;
-        k-=d;
-
-    }
-    co c ded
+    int n; ci n;
+    
+    if (!(n&1) && n != 2) {
+        co "YES\n";
+    } else co "NO\n";
     
 }
 
 int main()
 {
     meow;
-    int t;
-    cin >> t;
+    int t =1 ;
     while (t--)
     {
         solve();

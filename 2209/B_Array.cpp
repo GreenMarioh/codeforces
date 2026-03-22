@@ -36,19 +36,17 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    ll c, k;
-    ll n; ci n >> c >> k;
+    int n; ci n;
     getv(a, n);
-    sort(all(a));
     for(int i = 0; i < n; i++){
-        if (a[i] > c) break;
-        ll d = min(k, c-a[i]);
-        c+=a[i]+d;
-        k-=d;
-
+        int k1 = 0, k2 = 0;
+        for(int j = i; j <n; j++){
+            k1 += a[j]>a[i];
+            k2 += a[j]<a[i];
+        }
+        co max(k1, k2) << " ";
     }
-    co c ded
-    
+    cout ded
 }
 
 int main()

@@ -36,19 +36,29 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    ll c, k;
-    ll n; ci n >> c >> k;
-    getv(a, n);
-    sort(all(a));
-    for(int i = 0; i < n; i++){
-        if (a[i] > c) break;
-        ll d = min(k, c-a[i]);
-        c+=a[i]+d;
-        k-=d;
-
+    int n; ci n;
+    for(int i = 3; i < 2*n; i+=2){
+        co "? " << i << " " << i+1 << endl;
+        int x; ci x;
+        if (x){
+            co "! " << i << endl; return;
+        }
     }
-    co c ded
+    co "? 1 3" << endl; 
+    int x; ci x;
+    if (x){
+        co "! 1" << endl; return;
+    }
+
+    co "? 1 4" << endl;
+    ci x;
+    if (x){
+        co "! 1" << endl; return;
+    }
+    co "! 2" << endl; return;
     
+    cout.flush();
+
 }
 
 int main()
