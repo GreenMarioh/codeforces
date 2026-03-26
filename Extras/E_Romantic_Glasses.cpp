@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+
+#define co cout <<
+#define ci cin >>
+
+#define ded << "\n";
+
+#define vi vector<int>
+#define vll vector<long long>
+
+ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+
+#define meow                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL);
+
+const int MOD = 1e9 + 7;
+const int INF = 1e9 + 5;
+const ll LINF = 1e18;
+
+#define rep(i, a, b) for (int i = a; i < b; ++i)
+#define per(i, a, b) for (int i = b - 1; i >= a; --i)
+#define all(x) x.begin(), x.end()
+
+#define getv(a,n) \
+    vector<int> a(n); \
+    for(int i=0;i<n;i++) cin >> a[i];
+
+void solve()
+{
+    int n; ci n;
+    getv(a, n);
+
+    vector<ll> preEven(n, 0), preOdd(n, 0);
+
+    
+    preEven[0] = a[0];
+    map<ll, int> mpp;
+    mpp[preOdd[0] - preEven[0]]++;
+    for(int i = 1; i < n; i++){
+        preOdd[i] += preOdd[i-1];
+        preEven[i] += preEven[i-1];
+
+        if (i&1){
+            preOdd[i]+=a[i];
+        } else preEven[i] += a[i];
+        ll x = preOdd[i]-preEven[i];
+        mpp[x]++;
+        if (mpp[x] == 2 || x == 0){
+            co "YES\n"; return;
+        }
+
+    }
+    co "NO\n";
+                                         
+}
+
+int main()
+{
+    meow;
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
+}
