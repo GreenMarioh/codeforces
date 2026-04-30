@@ -36,8 +36,11 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n; ci n;
-    getv(a, n);
+    int a, b;
+    ci a >> b;
+    if (a&1 && b&1) {
+        co "NO\n";
+    } else co "YES\n";
     
 }
 

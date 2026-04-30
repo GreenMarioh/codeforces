@@ -36,8 +36,18 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n; ci n;
-    getv(a, n);
+    int n;
+    ci n;
+    string s;
+    ci s;
+    int l = 0, r = 0;
+    for(char c:s){
+        if (c==')') r++;
+        else l++;
+    }
+    if (l == r){
+        co "YES\n";
+    } else co "NO\n";
     
 }
 

@@ -38,7 +38,26 @@ void solve()
 {
     int n; ci n;
     getv(a, n);
-    
+    vector<int> six, twos, threes, extras;
+    for(int i:a){
+        if (i%6 == 0) six.push_back(i);
+        else if (i%6 == 2 || i%6 == 4) twos.push_back(i);
+        else if (i%6 == 3) threes.push_back(i);
+        else extras.push_back(i);
+    }
+    for(int i:six){
+        co i << " ";
+    }
+    for(int i:twos){
+        co i << " ";
+    }
+    for(int i:extras){
+        co i << " ";
+    }
+    for(int i:threes){
+        co i << " ";
+    }
+    co endl;
 }
 
 int main()
