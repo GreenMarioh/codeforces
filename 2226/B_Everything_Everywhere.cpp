@@ -38,7 +38,14 @@ void solve()
 {
     int n; ci n;
     getv(a, n);
-    
+    int res =0;
+    rep(i, 0, n-1){
+        int x = abs(a[i]-a[i+1]);
+        if (x==gcd(a[i], a[i+1])) res++;
+    }
+
+    co res ded
+
 }
 
 int main()

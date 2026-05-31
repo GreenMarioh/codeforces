@@ -39,6 +39,15 @@ void solve()
     int n; ci n;
     getv(a, n);
     
+    int count = 0;
+    rep(i, 1, n){
+        if (a[i] < a[i-1]) count++;
+    }
+
+    if (count < 2) {
+        co "YES\n";
+    } else co "NO\n";
+
 }
 
 int main()

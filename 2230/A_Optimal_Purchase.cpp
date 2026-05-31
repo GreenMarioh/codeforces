@@ -36,8 +36,25 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n; ci n;
-    getv(a, n);
+
+    ll n, a, b;
+    ci n >> a >> b;
+    
+    ll onePrice = min(a, b);
+    ll twoPrice = min(2 * a, b);
+    ll threePrice = min(3 * a, b);
+
+    ll res = (n / 3) * threePrice;
+
+    int rem = n % 3;
+
+    if (rem == 1)
+        res += onePrice;
+    else if (rem == 2)
+        res += twoPrice;
+
+    co res ded
+    
     
 }
 

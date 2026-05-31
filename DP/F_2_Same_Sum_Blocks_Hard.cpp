@@ -37,15 +37,46 @@ const ll LINF = 1e18;
 void solve()
 {
     int n; ci n;
-    getv(a, n);
+    vi a(n+1);
+    rep(i, 1, n+1) ci a[i];
     
-}
+    vll pref(n+1, 0);
+    rep(i, 1, n+1){
+        pref[i] = pref[i-1] + a[i];
+    }
+
+    map<ll, vector<pair<int, int>>> mpp;
+    for(int l = 1; l <= n; l++){
+        for(int r = l; r<= n; r++){
+            ll sum = pref[r] - pref[l-1];
+            mpp[sum].push_back({r, l});
+        }
+    }
+    vector<pii>  best;
+    for (auto&[sum, v]:mpp){
+        sort(all(v));
+        vector<pii> curr;
+        int lastEnd = 0;
+        for(auto&[r, l]:v){
+            if (l >lastEnd){
+                curr.push_back({l, r});
+                lastEnd = r;
+            }
+        }
+        if (curr.size() > best.size()) best = curr;
+    }
+    co best.size() ded
+    for (auto &[l, r]:best){
+        co l << " " << r ded
+    }
+
+}   
 
 int main()
 {
     meow;
-    int t;
-    cin >> t;
+    int t = 1;
+    //cin >> t;
     while (t--)
     {
         solve();

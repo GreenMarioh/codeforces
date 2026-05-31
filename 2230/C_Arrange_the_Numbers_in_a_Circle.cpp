@@ -39,6 +39,39 @@ void solve()
     int n; ci n;
     getv(a, n);
     
+
+    ll ones = 0;
+    vll blocks;
+    rep(i, 0, n){
+        if (a[i] == 1) ones++;
+        else blocks.push_back(a[i]);
+    }
+
+    int m = blocks.size();
+
+    if (m == 0) {
+        co 0 ded
+        return;
+    }
+
+    if (m == 1){
+        ll maxi = blocks[0]/2;
+        ll res = blocks[0] + min(ones, maxi);
+        if (res >= 3){
+            co res ded
+        } else co 0 ded
+        return;
+    }
+
+    ll sum = 0;
+    ll maxi = 0;
+    for (ll i:blocks){
+        sum += i;
+        maxi += (i-2)/2;
+    }
+
+    ll res = sum + min(ones, maxi);
+    co res ded
 }
 
 int main()

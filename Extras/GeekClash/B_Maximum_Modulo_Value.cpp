@@ -38,6 +38,15 @@ void solve()
 {
     int n; ci n;
     getv(a, n);
+    sort(all(a));
+
+    a.erase(unique(all(a)), a.end());
+
+    n = a.size();
+    if (n < 2) {
+        co "0\n"; return;
+    }
+    co a[n-2] ded
     
 }
 

@@ -38,7 +38,15 @@ void solve()
 {
     int n; ci n;
     getv(a, n);
-    
+    int z = 0, o = 0, t = 0;
+    for(int i:a){
+        if (i == 0) z++;
+        if (i == 2) t++;
+        if (i == 1) o++;
+    }
+    int k = min(o, t);
+    int res = z + k + (o-k)/3 + (t-k)/3;
+    co res ded
 }
 
 int main()

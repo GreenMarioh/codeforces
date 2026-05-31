@@ -36,9 +36,24 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n; ci n;
-    getv(a, n);
-    
+    string s;
+    ci s;
+
+    int res = 0;
+    int oddLeft = 0;
+    for(char c:s){
+        
+        if (c&1) oddLeft++;
+        if (c%4 == 0) res++;
+        else if (c%4 == 2) {
+            if (oddLeft > 0) {
+                res++;
+                oddLeft--;
+            }
+        }
+    }
+    co res ded
+
 }
 
 int main()

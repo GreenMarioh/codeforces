@@ -36,16 +36,40 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n; ci n;
-    getv(a, n);
+    int n, v; ci n >> v;
+    
+    vector<int> a(n), b(n);
+    rep(i, 0, n) {
+        ci a[i] >> b[i];
+    }
+
+    vi days(3002, 0);
+
+    rep(i, 0, n){
+        days[a[i]] += b[i];
+    }
+
+    int res = 0, last = 0;
+    rep(i, 0, 3002){
+        int takeLast = min(v, last);
+        res += takeLast;
+        int rem = v - takeLast;
+
+        int takeNow = min(rem, days[i]);
+        res += takeNow;
+
+        last = days[i] - takeNow;
+    }
+
+    co res ded
     
 }
 
 int main()
 {
     meow;
-    int t;
-    cin >> t;
+    int t = 1;
+    //cin >> t;
     while (t--)
     {
         solve();

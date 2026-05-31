@@ -22,7 +22,7 @@ ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
     cin.tie(NULL);                    \
     cout.tie(NULL);
 
-const int MOD = 1e9 + 7;
+const int MOD = 676767677;
 const int INF = 1e9 + 5;
 const ll LINF = 1e18;
 
@@ -38,7 +38,11 @@ void solve()
 {
     int n; ci n;
     getv(a, n);
-    
+
+    int res =0 ;
+    if (a[n-1] == 1) res++;
+    for(int i:a) if (i>1) res+=i;
+    co res ded
 }
 
 int main()

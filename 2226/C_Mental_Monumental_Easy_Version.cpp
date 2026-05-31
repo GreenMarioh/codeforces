@@ -34,11 +34,70 @@ const ll LINF = 1e18;
     vector<int> a(n); \
     for(int i=0;i<n;i++) cin >> a[i];
 
+/*int checkMax(vector<int> &arr){
+    vector<int> mex(1e6, 0);
+    int n = arr.size();
+    for(int i:arr){
+        mex[i] = 1;
+    }
+    int res =0 ;
+    int i = 0;
+    while(i < n-1){
+        if (mex[i] == 1) {res++; i++;}
+        else break;
+    }
+    return res;
+}*/
+
+
+bool check(int mex, multiset<int> &ms){
+    vector<int> rem;
+    bool ok = 1;
+    per(i, 0, mex){
+        if (ms.count(i)){
+            rem.push_back(i);
+            ms.erase(ms.find(i));
+        }
+
+        else {
+            int x = *ms.rbegin();
+            if (x < 2*i+1){
+                ok = false;
+                break;
+            }
+            rem.push_back(x);
+            ms.erase(ms.find(x));
+        }
+    }
+
+    for(int x:rem) ms.insert(x);
+    return ok;
+}
+
 void solve()
 {
     int n; ci n;
     getv(a, n);
     
+    //sort(all(a));
+
+    multiset<int> st(all(a));
+    int l = 0, r = n+1;
+
+    while(l<r){
+        int mid = l+(r-l)/2;
+
+        if (check(mid, st)){
+            l = mid+1;
+        } else {
+            r= mid;
+        }
+    }
+
+    co l-1 ded
+
+
+
 }
 
 int main()

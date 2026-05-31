@@ -34,13 +34,26 @@ const ll LINF = 1e18;
     vector<int> a(n); \
     for(int i=0;i<n;i++) cin >> a[i];
 
+
 void solve()
 {
-    int n; ci n;
-    getv(a, n);
-    
-}
+    ll n, x1, x2, k;
+    ci n >> x1 >> x2 >> k;
 
+    if (n <= 3) {
+        co 1 ded;
+        return;
+    }
+
+    ll d1 = abs(x1 - x2);
+    ll d2 = n - d1;
+
+    ll res = min(d1, d2);
+
+
+    co res+k ded
+
+}
 int main()
 {
     meow;

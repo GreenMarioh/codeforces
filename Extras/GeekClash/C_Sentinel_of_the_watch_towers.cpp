@@ -36,8 +36,28 @@ const ll LINF = 1e18;
 
 void solve()
 {
-    int n; ci n;
+    int n, k; ci n >> k;
     getv(a, n);
+
+    vector<int> res;
+    priority_queue<pii> pq;
+
+    rep(i, 0, k){
+        pq.push({a[i], i});
+    }
+    res.push_back(pq.top().first);
+
+    rep(i, k, n){
+        pq.push({a[i], i});
+
+        while(!pq.empty() && pq.top().second <= i-k) pq.pop();
+
+
+        res.push_back(pq.top().first);
+    }
+    for(int i:res){
+        co i << " ";
+    } cout << endl;
     
 }
 
